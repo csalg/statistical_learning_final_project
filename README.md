@@ -1,0 +1,3 @@
+This is the final project for SJTU's Statistical Learning class. I scored in the top 5 for the Kaggle competition (out of  around 200 students)
+
+Initially used R and the Caret framework to explore different classical ML algorithms, however in the end what worked best was using semi-supervised learning techniques (like pseudoscience-labeling and EM-family algorithms). These algorithms  try to find structure to the data by also the using test set (which was around ten times larger). 
