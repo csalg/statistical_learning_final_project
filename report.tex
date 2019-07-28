@@ -1,0 +1,993 @@
+%% template.tex
+%% from
+%% bare_conf.tex
+%% V1.4b
+%% 2015/08/26
+%% by Michael Shell
+%% See:
+%% http://www.michaelshell.org/
+%% for current contact information.
+%%
+%% This is a skeleton file demonstrating the use of IEEEtran.cls
+%% (requires IEEEtran.cls version 1.8b or later) with an IEEE
+%% conference paper.
+%%
+%% Support sites:
+%% http://www.michaelshell.org/tex/ieeetran/
+%% http://www.ctan.org/pkg/ieeetran
+%% and
+%% http://www.ieee.org/
+
+%%*************************************************************************
+%% Legal Notice:
+%% This code is offered as-is without any warranty either expressed or
+%% implied; without even the implied warranty of MERCHANTABILITY or
+%% FITNESS FOR A PARTICULAR PURPOSE!
+%% User assumes all risk.
+%% In no event shall the IEEE or any contributor to this code be liable for
+%% any damages or losses, including, but not limited to, incidental,
+%% consequential, or any other damages, resulting from the use or misuse
+%% of any information contained here.
+%%
+%% All comments are the opinions of their respective authors and are not
+%% necessarily endorsed by the IEEE.
+%%
+%% This work is distributed under the LaTeX Project Public License (LPPL)
+%% ( http://www.latex-project.org/ ) version 1.3, and may be freely used,
+%% distributed and modified. A copy of the LPPL, version 1.3, is included
+%% in the base LaTeX documentation of all distributions of LaTeX released
+%% 2003/12/01 or later.
+%% Retain all contribution notices and credits.
+%% ** Modified files should be clearly indicated as such, including  **
+%% ** renaming them and changing author support contact information. **
+%%*************************************************************************
+
+
+% *** Authors should verify (and, if needed, correct) their LaTeX system  ***
+% *** with the testflow diagnostic prior to trusting their LaTeX platform ***
+% *** with production work. The IEEE's font choices and paper sizes can   ***
+% *** trigger bugs that do not appear when using other class files.       ***                          ***
+% The testflow support page is at:
+% http://www.michaelshell.org/tex/testflow/
+
+\documentclass[conference,final,]{IEEEtran}
+% Some Computer Society conferences also require the compsoc mode option,
+% but others use the standard conference format.
+%
+% If IEEEtran.cls has not been installed into the LaTeX system files,
+% manually specify the path to it like:
+% \documentclass[conference]{../sty/IEEEtran}
+
+
+
+
+
+% Some very useful LaTeX packages include:
+% (uncomment the ones you want to load)
+
+
+% *** MISC UTILITY PACKAGES ***
+%
+%\usepackage{ifpdf}
+% Heiko Oberdiek's ifpdf.sty is very useful if you need conditional
+% compilation based on whether the output is pdf or dvi.
+% usage:
+% \ifpdf
+%   % pdf code
+% \else
+%   % dvi code
+% \fi
+% The latest version of ifpdf.sty can be obtained from:
+% http://www.ctan.org/pkg/ifpdf
+% Also, note that IEEEtran.cls V1.7 and later provides a builtin
+% \ifCLASSINFOpdf conditional that works the same way.
+% When switching from latex to pdflatex and vice-versa, the compiler may
+% have to be run twice to clear warning/error messages.
+
+
+
+
+
+
+% *** CITATION PACKAGES ***
+%
+%\usepackage{cite}
+% cite.sty was written by Donald Arseneau
+% V1.6 and later of IEEEtran pre-defines the format of the cite.sty package
+% \cite{} output to follow that of the IEEE. Loading the cite package will
+% result in citation numbers being automatically sorted and properly
+% "compressed/ranged". e.g., [1], [9], [2], [7], [5], [6] without using
+% cite.sty will become [1], [2], [5]--[7], [9] using cite.sty. cite.sty's
+% \cite will automatically add leading space, if needed. Use cite.sty's
+% noadjust option (cite.sty V3.8 and later) if you want to turn this off
+% such as if a citation ever needs to be enclosed in parenthesis.
+% cite.sty is already installed on most LaTeX systems. Be sure and use
+% version 5.0 (2009-03-20) and later if using hyperref.sty.
+% The latest version can be obtained at:
+% http://www.ctan.org/pkg/cite
+% The documentation is contained in the cite.sty file itself.
+
+
+
+
+
+
+% *** GRAPHICS RELATED PACKAGES ***
+%
+\ifCLASSINFOpdf
+  % \usepackage[pdftex]{graphicx}
+  % declare the path(s) where your graphic files are
+  % \graphicspath{{../pdf/}{../jpeg/}}
+  % and their extensions so you won't have to specify these with
+  % every instance of \includegraphics
+  % \DeclareGraphicsExtensions{.pdf,.jpeg,.png}
+\else
+  % or other class option (dvipsone, dvipdf, if not using dvips). graphicx
+  % will default to the driver specified in the system graphics.cfg if no
+  % driver is specified.
+  % \usepackage[dvips]{graphicx}
+  % declare the path(s) where your graphic files are
+  % \graphicspath{{../eps/}}
+  % and their extensions so you won't have to specify these with
+  % every instance of \includegraphics
+  % \DeclareGraphicsExtensions{.eps}
+\fi
+% graphicx was written by David Carlisle and Sebastian Rahtz. It is
+% required if you want graphics, photos, etc. graphicx.sty is already
+% installed on most LaTeX systems. The latest version and documentation
+% can be obtained at:
+% http://www.ctan.org/pkg/graphicx
+% Another good source of documentation is "Using Imported Graphics in
+% LaTeX2e" by Keith Reckdahl which can be found at:
+% http://www.ctan.org/pkg/epslatex
+%
+% latex, and pdflatex in dvi mode, support graphics in encapsulated
+% postscript (.eps) format. pdflatex in pdf mode supports graphics
+% in .pdf, .jpeg, .png and .mps (metapost) formats. Users should ensure
+% that all non-photo figures use a vector format (.eps, .pdf, .mps) and
+% not a bitmapped formats (.jpeg, .png). The IEEE frowns on bitmapped formats
+% which can result in "jaggedy"/blurry rendering of lines and letters as
+% well as large increases in file sizes.
+%
+% You can find documentation about the pdfTeX application at:
+% http://www.tug.org/applications/pdftex
+
+
+
+
+
+% *** MATH PACKAGES ***
+%
+%\usepackage{amsmath}
+% A popular package from the American Mathematical Society that provides
+% many useful and powerful commands for dealing with mathematics.
+%
+% Note that the amsmath package sets \interdisplaylinepenalty to 10000
+% thus preventing page breaks from occurring within multiline equations. Use:
+%\interdisplaylinepenalty=2500
+% after loading amsmath to restore such page breaks as IEEEtran.cls normally
+% does. amsmath.sty is already installed on most LaTeX systems. The latest
+% version and documentation can be obtained at:
+% http://www.ctan.org/pkg/amsmath
+
+
+
+
+
+% *** SPECIALIZED LIST PACKAGES ***
+%
+%\usepackage{algorithmic}
+% algorithmic.sty was written by Peter Williams and Rogerio Brito.
+% This package provides an algorithmic environment fo describing algorithms.
+% You can use the algorithmic environment in-text or within a figure
+% environment to provide for a floating algorithm. Do NOT use the algorithm
+% floating environment provided by algorithm.sty (by the same authors) or
+% algorithm2e.sty (by Christophe Fiorio) as the IEEE does not use dedicated
+% algorithm float types and packages that provide these will not provide
+% correct IEEE style captions. The latest version and documentation of
+% algorithmic.sty can be obtained at:
+% http://www.ctan.org/pkg/algorithms
+% Also of interest may be the (relatively newer and more customizable)
+% algorithmicx.sty package by Szasz Janos:
+% http://www.ctan.org/pkg/algorithmicx
+
+
+
+
+% *** ALIGNMENT PACKAGES ***
+%
+%\usepackage{array}
+% Frank Mittelbach's and David Carlisle's array.sty patches and improves
+% the standard LaTeX2e array and tabular environments to provide better
+% appearance and additional user controls. As the default LaTeX2e table
+% generation code is lacking to the point of almost being broken with
+% respect to the quality of the end results, all users are strongly
+% advised to use an enhanced (at the very least that provided by array.sty)
+% set of table tools. array.sty is already installed on most systems. The
+% latest version and documentation can be obtained at:
+% http://www.ctan.org/pkg/array
+
+
+% IEEEtran contains the IEEEeqnarray family of commands that can be used to
+% generate multiline equations as well as matrices, tables, etc., of high
+% quality.
+
+
+
+
+% *** SUBFIGURE PACKAGES ***
+%\ifCLASSOPTIONcompsoc
+%  \usepackage[caption=false,font=normalsize,labelfont=sf,textfont=sf]{subfig}
+%\else
+%  \usepackage[caption=false,font=footnotesize]{subfig}
+%\fi
+% subfig.sty, written by Steven Douglas Cochran, is the modern replacement
+% for subfigure.sty, the latter of which is no longer maintained and is
+% incompatible with some LaTeX packages including fixltx2e. However,
+% subfig.sty requires and automatically loads Axel Sommerfeldt's caption.sty
+% which will override IEEEtran.cls' handling of captions and this will result
+% in non-IEEE style figure/table captions. To prevent this problem, be sure
+% and invoke subfig.sty's "caption=false" package option (available since
+% subfig.sty version 1.3, 2005/06/28) as this is will preserve IEEEtran.cls
+% handling of captions.
+% Note that the Computer Society format requires a larger sans serif font
+% than the serif footnote size font used in traditional IEEE formatting
+% and thus the need to invoke different subfig.sty package options depending
+% on whether compsoc mode has been enabled.
+%
+% The latest version and documentation of subfig.sty can be obtained at:
+% http://www.ctan.org/pkg/subfig
+
+
+
+
+% *** FLOAT PACKAGES ***
+%
+
+%\usepackage{fixltx2e}
+% fixltx2e, the successor to the earlier fix2col.sty, was written by
+% Frank Mittelbach and David Carlisle. This package corrects a few problems
+% in the LaTeX2e kernel, the most notable of which is that in current
+% LaTeX2e releases, the ordering of single and double column floats is not
+% guaranteed to be preserved. Thus, an unpatched LaTeX2e can allow a
+% single column figure to be placed prior to an earlier double column
+% figure.
+% Be aware that LaTeX2e kernels dated 2015 and later have fixltx2e.sty's
+% corrections already built into the system in which case a warning will
+% be issued if an attempt is made to load fixltx2e.sty as it is no longer
+% needed.
+% The latest version and documentation can be found at:
+% http://www.ctan.org/pkg/fixltx2e
+
+
+%\usepackage{stfloats}
+% stfloats.sty was written by Sigitas Tolusis. This package gives LaTeX2e
+% the ability to do double column floats at the bottom of the page as well
+% as the top. (e.g., "\begin{figure*}[!b]" is not normally possible in
+% LaTeX2e). It also provides a command:
+%\fnbelowfloat
+% to enable the placement of footnotes below bottom floats (the standard
+% LaTeX2e kernel puts them above bottom floats). This is an invasive package
+% which rewrites many portions of the LaTeX2e float routines. It may not work
+% with other packages that modify the LaTeX2e float routines. The latest
+% version and documentation can be obtained at:
+% http://www.ctan.org/pkg/stfloats
+% Do not use the stfloats baselinefloat ability as the IEEE does not allow
+% \baselineskip to stretch. Authors submitting work to the IEEE should note
+% that the IEEE rarely uses double column equations and that authors should try
+% to avoid such use. Do not be tempted to use the cuted.sty or midfloat.sty
+% packages (also by Sigitas Tolusis) as the IEEE does not format its papers in
+% such ways.
+% Do not attempt to use stfloats with fixltx2e as they are incompatible.
+% Instead, use Morten Hogholm'a dblfloatfix which combines the features
+% of both fixltx2e and stfloats:
+%
+% \usepackage{dblfloatfix}
+% The latest version can be found at:
+% http://www.ctan.org/pkg/dblfloatfix
+
+
+
+
+% *** PDF, URL AND HYPERLINK PACKAGES ***
+%
+%\usepackage{url}
+% url.sty was written by Donald Arseneau. It provides better support for
+% handling and breaking URLs. url.sty is already installed on most LaTeX
+% systems. The latest version and documentation can be obtained at:
+% http://www.ctan.org/pkg/url
+% Basically, \url{my_url_here}.
+
+
+
+
+% *** Do not adjust lengths that control margins, column widths, etc. ***
+% *** Do not use packages that alter fonts (such as pslatex).         ***
+% There should be no need to do such things with IEEEtran.cls V1.6 and later.
+% (Unless specifically asked to do so by the journal or conference you plan
+% to submit to, of course. )
+
+
+
+%% BEGIN MY ADDITIONS %%
+
+
+\usepackage{graphicx}
+% We will generate all images so they have a width \maxwidth. This means
+% that they will get their normal width if they fit onto the page, but
+% are scaled down if they would overflow the margins.
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth
+\else\Gin@nat@width\fi}
+\makeatother
+\let\Oldincludegraphics\includegraphics
+\renewcommand{\includegraphics}[1]{\Oldincludegraphics[width=\maxwidth]{#1}}
+
+\usepackage[unicode=true]{hyperref}
+
+\hypersetup{
+            pdftitle={Statistical Learning - Final Project Report},
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+
+% Pandoc toggle for numbering sections (defaults to be off)
+\setcounter{secnumdepth}{0}
+
+% Pandoc syntax highlighting
+
+% Pandoc header
+\usepackage{booktabs} \usepackage{listings} \usepackage[]{algorithm2e} \usepackage{amsmath} \usepackage{amssymb}
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+%% END MY ADDITIONS %%
+
+
+\hyphenation{op-tical net-works semi-conduc-tor}
+
+\begin{document}
+%
+% paper title
+% Titles are generally capitalized except for words such as a, an, and, as,
+% at, but, by, for, in, nor, of, on, or, the, to and up, which are usually
+% not capitalized unless they are the first or last word of the title.
+% Linebreaks \\ can be used within to get better formatting as desired.
+% Do not put math or special symbols in the title.
+\title{Statistical Learning - Final Project Report}
+
+% author names and affiliations
+% use a multiple column layout for up to three different
+% affiliations
+
+\author{
+
+%% ---- classic IEEETrans wide authors' list ----------------
+ % -- end affiliation.wide
+%% ----------------------------------------------------------
+
+
+
+%% ---- classic IEEETrans one column per institution --------
+ %% -- beg if/affiliation.institution-columnar
+\IEEEauthorblockN{
+  %% -- beg for/affiliation.institution.author
+Carlos Perez-Guerra (118033990013),
+  %% -- beg for/affiliation.institution.author
+ %% -- end for/affiliation.institution.author
+}
+\IEEEauthorblockA{Department of CSE\\
+Shanghai Jiaotong University
+  %% -- beg for/affiliation.institution.author
+  %% -- beg for/affiliation.institution.author
+\\charliewar89@sjtu.edu.cn
+ %% -- end for/affiliation.institution.author
+}
+ %% -- end for/affiliation.institution
+ %% -- end if/affiliation.institution-columnar
+%% ----------------------------------------------------------
+
+
+
+
+
+%% ---- one column per author, classic/default IEEETrans ----
+ %% -- end if/affiliation.institution-columnar
+%% ----------------------------------------------------------
+
+}
+
+% conference papers do not typically use \thanks and this command
+% is locked out in conference mode. If really needed, such as for
+% the acknowledgment of grants, issue a \IEEEoverridecommandlockouts
+% after \documentclass
+
+% for over three affiliations, or if they all won't fit within the width
+% of the page, use this alternative format:
+%
+%\author{\IEEEauthorblockN{Michael Shell\IEEEauthorrefmark{1},
+%Homer Simpson\IEEEauthorrefmark{2},
+%James Kirk\IEEEauthorrefmark{3},
+%Montgomery Scott\IEEEauthorrefmark{3} and
+%Eldon Tyrell\IEEEauthorrefmark{4}}
+%\IEEEauthorblockA{\IEEEauthorrefmark{1}School of Electrical and Computer Engineering\\
+%Georgia Institute of Technology,
+%Atlanta, Georgia 30332--0250\\ Email: see http://www.michaelshell.org/contact.html}
+%\IEEEauthorblockA{\IEEEauthorrefmark{2}Twentieth Century Fox, Springfield, USA\\
+%Email: homer@thesimpsons.com}
+%\IEEEauthorblockA{\IEEEauthorrefmark{3}Starfleet Academy, San Francisco, California 96678-2391\\
+%Telephone: (800) 555--1212, Fax: (888) 555--1212}
+%\IEEEauthorblockA{\IEEEauthorrefmark{4}Tyrell Inc., 123 Replicant Street, Los Angeles, California 90210--4321}}
+
+
+
+
+% use for special paper notices
+%\IEEEspecialpapernotice{(Invited Paper)}
+
+
+
+
+% make the title area
+\maketitle
+
+% As a general rule, do not put math, special symbols or citations
+% in the abstract
+\begin{abstract}
+In this report, I examine the different classification algorithms we
+discussed in class as applied to the image training dataset
+Specifically, I will focus on discriminative supervised classification
+algorithms, and then enhance their power through the semi-supervised
+learning technique known as pseudo-labeling. The best algorithm achieved
+a private score of 0.93891 (top 5\%, Fig. 1), although it was a late
+submission, hence validating the methods described herewith.
+\end{abstract}
+
+% no keywords
+
+% use for special paper notices
+
+
+
+% make the title area
+\maketitle
+
+% no keywords
+
+% For peer review papers, you can put extra information on the cover
+% page as needed:
+% \ifCLASSOPTIONpeerreview
+% \begin{center} \bfseries EDICS Category: 3-BBND \end{center}
+% \fi
+%
+% For peerreview papers, this IEEEtran command inserts a page break and
+% creates the second title. It will be ignored for other modes.
+\IEEEpeerreviewmaketitle
+
+
+\hypertarget{introduction-methodology}{%
+\section{Introduction \& Methodology}\label{introduction-methodology}}
+
+In keeping with assignment guidelines, my choice of algorithms drew from
+class discussion. The R programming language was chosen for this task
+since all algorithms discussed had an implementation by their creators
+or affiliated researchers in this language.
+
+Due to the high dimension of the data, PCA was performed and used as a
+base for the input space, and hence the number of components was treated
+as an additional parameter. The number of components retained is denoted
+with the letter \(p\). All parameters for the algorithms in Table 1 were
+estimated using 5-fold, 2-repetition cross validation. Cross-Validation
+was chosen over Bootstrap Estimation due to the shape of the data, in
+which \(N_k<p\). Initially, my investigation focused on supervised
+learning techniques, and the results of the most effective algorithms
+are summarised in Table 1.
+
+\begin{table}[htbp]
+\caption{\label{tab:org1e2928b}
+Results using some classic supervised learning algorithms}
+\centering
+\begin{tabular}{ *{4}{c} }
+\hline 
+\multicolumn{1}{|p{1cm}|}{\centering Algorithm}
+& \multicolumn{1}{|p{1.5cm}|}{\centering Parameters}
+& \multicolumn{1}{|p{1.5cm}|}{\centering Accuracy \\ (Training, \\ 95\% CI)}
+& \multicolumn{1}{|p{1.5cm}|}{\centering Accuracy \\ (Private \\ Leaderboard)} \\
+\hline
+
+HDRDA Ridge 
+& \multicolumn{1}{|p{1.5cm}|}{\centering $\lambda=0.5$, \\ $\gamma=0.5$  }
+& \multicolumn{1}{|p{1.5cm}|}{\centering 0.98339 \\ (0.9775, 0.98924) }
+& 0.91346 \\
+\hline
+
+HDRDA Convex 
+& \multicolumn{1}{|p{1.5cm}|}{\centering $\lambda=0.5$, \\ $\gamma=0.5$  }
+& \multicolumn{1}{|p{1.5cm}|}{\centering 0.98122 \\ (0.9715, 0.9893) }
+& 0.912471 \\
+\hline
+
+PLSDA 
+& \multicolumn{1}{|p{1.5cm}|}{\centering $n=15$, \\ $p=1000$  }
+& \multicolumn{1}{|p{1.5cm}|}{\centering 0.98122 \\ (0.9715, 0.9893) }
+& 0.92655 \\
+\hline
+
+Logistic Regression 
+& \multicolumn{1}{|p{1.5cm}|}{\centering }
+& \multicolumn{1}{|p{1.5cm}|}{\centering 0.98122 \\ (0.9715, 0.9893) }
+& 0.92115 \\
+\hline
+
+LDA
+& \multicolumn{1}{|p{1.5cm}|}{\centering }
+& \multicolumn{1}{|p{1.5cm}|}{\centering 0.98122 \\ (0.9715, 0.9893) }
+& 0.90576 \\
+\hline
+
+MDA
+& \multicolumn{1}{|p{1.5cm}|}{\centering $n=10$  }
+& \multicolumn{1}{|p{1.5cm}|}{\centering 0.98122 \\ (0.9715, 0.9893) }
+& 0.88791 \\
+\hline
+
+SVM - Linear
+& \multicolumn{1}{|p{1.5cm}|}{\centering   }
+& \multicolumn{1}{|p{1.5cm}|}{\centering 0.98122 \\ (0.9715, 0.9893) }
+& 0.85778 \\
+
+
+\bottomrule
+\end{tabular}
+\end{table}
+
+However, it soon became clear that further generalization power could be
+achieved by considering the unlabeled data set to impose constraints on
+the dataset, thereby reducing the estimator's bias (semi-supervised
+learning).Using the pseudo-labeling algorithm, which I implemented in R
+and which is explained in detail below, resulted in an improvedment in
+generalization ability for all algorithms. Due to the nature of the
+pseudo-labeling algorithm (training error increases with each iteration
+as bias is smoothed out), cross-validation was not used. Results using
+pseudo-labeling are summarised in Table 2.
+
+\begin{table}[htbp]
+\caption{\label{tab:org1e2928b}
+Results using pseudo-labeling}
+\centering
+\begin{tabular}{ *{4}{c} }
+\hline 
+\multicolumn{1}{|p{2cm}|}{\centering Algorithm}
+& \multicolumn{1}{|p{2cm}|}{\centering Parameters}
+& \multicolumn{1}{|p{2cm}|}{\centering Accuracy \\ (Private \\ Leaderboard)} \\
+\hline
+
+PLSDA & $n=15, p=1500$ & 0.92902 \\
+\hline
+
+\textbf{Least Squares Classifier} & $\lambda=0.1, p=1500$ & \textbf{0.93891} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}
+\centering
+\includegraphics{../fig/kaggle_best.png}
+\caption{Screenshot of my best prediction set in the Kaggle competition,
+as required by the task description}
+\end{figure}
+
+\hypertarget{exploratory-analysis}{%
+\section{Exploratory Analysis}\label{exploratory-analysis}}
+
+A first glance at our data set reveals we have almost as many features
+as we have data points. There are 12 classes is the training set
+(balanced), and each predictor is real-valued, so each class is severely
+undersampled. Hence we should treat this as a supervised dimensionality
+problem, namely we wish to find a transformation that maps data to a
+lower dimensional space while maintaining or improving separability of
+the data.
+
+A common technique in dimensionality reduction is to start by doing
+Principal Component Analysis. PCA is an unsupervised training technique
+that consists on doing SVD on the centered and scaled predictors
+covariance matrix. This is equivalent to projecting the input space on a
+new space whose basis is the set of eigenvectors, where the resulting
+magnitude of the eigenvalues reveals how much variance of the data is
+explained by each eigenvector in the new space. PCA is an expensive
+algorithm, but it is feasible for the size of our dataset (especially
+since there are parallel implementations). The results are summarised in
+Figs. 2,3, 4 and Table 1:
+
+\begin{table}[htbp]
+\caption{\label{tab:org1e2928b}
+Percentage of variance explained as number of principal components increases}
+\centering
+\begin{tabular}{rl}
+\# PC's & \% of Variance explained\\
+\hline
+3 & 13\%\\
+8 & 26\%\\
+50 & 52\%\\
+425 & 79\%\\
+1000 & 90\%\\
+1500 & 94\%\\
+4094 & 100\%\\
+\end{tabular}
+\end{table}
+
+PCA reveals two predictors are redundant, and most of the variance is
+explained with 2000 components. It is very likely that most of the
+near-zero components are simply perturbations or noise. Somewhere
+between 1000 and 2000 components there exist optima, where variance
+(resp. separability) is preserved and dimensionality is reduced.
+
+\begin{figure}
+\centering
+\includegraphics{../fig/scree.jpg}
+\caption{Scree plot reveals most components are highly correlated. The
+first 1000 components explain 90\% of variance in the data}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics{../fig/pca_3d.jpg}
+\caption{A 3D scatterplot of the inputs in PC space using the first 3
+components.}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics{../fig/pca_pairs.jpg}
+\caption{Pair scatterplots of the first 8 components (which explain 26\%
+of the variance)}
+\end{figure}
+
+\hypertarget{discriminant-analysis}{%
+\section{Discriminant Analysis}\label{discriminant-analysis}}
+
+There exist many discriminant analysis approaches, all derived from the
+maximum likelihood estimate of log odds between two classes of data
+assumed to be normally distributed. As required, I will describe briefly
+their origin and formulation:
+
+Recall that the MLE of samples from a normal distribution is given by:
+
+\begin{equation}
+\hat{\pi}_k = \frac{N_k}{N}
+\end{equation}
+
+\begin{equation}
+\hat{\mu}_k = \frac{1}{N_k}\sum^{N_k}_{n=1}x_n
+\end{equation}
+
+\begin{equation}
+\hat{\Sigma}_k = \sum^{N_k}_{n=1}(x_n - \hat \mu_k)(x_n - \hat \mu_k)^T
+\end{equation}
+
+We can express the odds using Bayes' Rule:
+
+\begin{equation}
+\frac {\hat {\pi}_k \hat {f}_k} {\hat {\pi}_j \hat {f}_j} = 1
+\end{equation}
+
+where the equality of numerator and denominator will occur at the class
+boundary. We can further assume that the classes are multivariate
+Gaussian. Taking logs and doing some algebra we get the QDA
+discriminant:
+
+\begin{equation}
+\delta_{QDA}^{(k)}  = \log \hat \pi _k - \frac 1 2 [log |\hat \Sigma _k| + (x_n - \hat \mu_k)^T\hat \Sigma _k ^{-1}(x_n - \hat \mu_k)]
+\end{equation}
+
+The LDA discriminant follows by allowing the covariance matrix to be a
+pooled covariance (weighted sum of the covariance matrices of all
+classes). Then terms that don't depend on \(\hat{\mu}_k\) cancel out and
+we have:
+
+\begin{equation}
+\delta_{LDA}^{(k)}  = \log \hat {\pi} _k + \hat {\mu} _k ^T \hat {\Sigma} ^{-1} x -\hat {\mu} _k ^T \hat {\Sigma} ^{-1} \hat {\mu} _k
+\end{equation}
+
+Friedman (1989) proposed Regularized Discriminant Analysis, which is
+essentially a refinement of QDA in which the pooled covariance matrix
+\(\hat \Sigma\) is used to smooth \(\hat \Sigma _k\) by a parameter
+\(\lambda\), hence the new covariance matrix is now a convex
+combination:
+
+\begin{equation}
+\tilde{\Sigma}_k(\lambda) = \lambda \hat \Sigma _k - (1-\lambda) \hat \Sigma
+\end{equation}
+
+Lastly, Ramey et al. (2016) proposed HDRDA, whose formulation is:
+
+\begin{equation}
+\tilde{\Sigma}_{HDRDA}^{(k)}(\lambda, \gamma) = \alpha \tilde{\Sigma}_k(\lambda) - \gamma I
+\end{equation}
+
+In this case if \(\alpha=1\) then we have Friedman's RDA with a
+shrinkage term on the eigenvectors, which the authors define as
+\emph{HDRDA Ridge}, while if \(\alpha=1-\gamma\) we have a different
+algorithm which they define as \emph{HDRDA Convex}.
+
+Hence it is clear that we can do a search on \(\lambda\) and \(\gamma\)
+and it is equivalent to testing the data on LDA,QDA and RDA, while also
+accounting for variance in high-dimensional space with shrinkage. The
+cross-validated optimum of the Accuracy error surface was found to be
+\(\lambda = 0.5, \gamma=0.5, \alpha=1-\gamma\). The \(sparsediscrim\)
+package (written by the authors of the paper) was used.
+
+\begin{figure}
+\centering
+\includegraphics{../fig/accuracy_hdrda.png}
+\caption{Parameter tuning for the HDRDA classifier)}
+\end{figure}
+
+\hypertarget{mixture-discriminant-analysis}{%
+\section{Mixture Discriminant
+Analysis}\label{mixture-discriminant-analysis}}
+
+It is clear that while HDRDA performs well on the data, there is still
+room for improvement. Could the error be reduced by fitting a non-linear
+model? The logical extension is MDA, first proposed by Hastie and
+Tibshirani (1996), which attempts to model each class as a Gaussian
+Mixture Model instead of as a single Gaussian. However this model
+performed poorly, as can be seen in Table 1 and Fig. 6.
+
+\begin{figure}
+\centering
+\includegraphics{../fig/accuracy_mda.png}
+\caption{Accuracy clearly decreases with subclasses per class for the
+MDA classifier.}
+\end{figure}
+
+\hypertarget{partial-least-squares-discriminant-analysis-plsda}{%
+\section{Partial Least Squares Discriminant Analysis
+(PLSDA)}\label{partial-least-squares-discriminant-analysis-plsda}}
+
+Partial Least-Squares Discriminant Analysis (PLS-DA) is a supervised
+multivariate dimensionality-reduction tool {[}15{]}, {[}2{]} that has
+been popular in the field of chemometrics for well over two decades
+(Gottfries et al. (1995), Ståhle and Wold (1987), Perez and Narasimhan
+(2018)). Chemometrics data sets are characterized by large volume, large
+number of features, noise and missing data (Barker and Rayens (2003)).
+Because of the difficulty in obtaining labeled data, and the large
+number of features, usually \(n_k<p\), as in our case.
+
+PLSDA can be thought of as the supervised counterpart of PCA is a
+different approach to dimensionality reduction. In contrast to PCA,
+PLSDA considers the correlation of each predictor with the labeled data.
+It is similar to Fisher Discriminant Analalysis, but allows for a
+feature space that is larger than \(k-1\) dimensions, and is hence able
+to capture more nuanced data patterns.
+
+The way it works is not mysterious. In the two-class case, the labels
+are encoded numerically as \{0,1\}, then the classic partial least
+squares algorithm is applied (Algorithm 1). The only parameter that
+requires tuning is the number of components in the new space.
+
+\begin{algorithm}
+\SetKwInOut{Input}{input}\SetKwInOut{Output}{output}
+ \Input{$X,y,k$}
+ \Output{$[\phi]_{\dim(X) \times k} $}
+ $k \triangleq$ Desired number of components
+ 
+  \Begin{
+    \tcc{Center and normalize each predictor to have zero mean and unit variance}
+  }
+  
+ \For{$m=1,2,..,$k}{
+ 
+ $\phi_{mj}=x_j^{(m-1)} \cdot y$\;
+ $z_m = \sum_{j=1}^{p} \phi_{mj}x_j$\;
+ $\hat{\theta}_m = \frac{z_m \cdot y}{z_m \cdot z_m}$\;
+ Orthogonalize each $x_j^{(m-1)}$ w.r.t $z_m$
+}
+
+\caption{The PLS Algorithm}
+
+\end{algorithm}
+
+In the multiclass case, the two-class case is extended by means of an
+indicator matrix \(Y\). Then, the two-class algorithm is applied to each
+column of the matrix Y, and then k transformation matrices are computed.
+The discriminant is then calculated using softmax criteria on each new
+space.
+
+The PLSDA algorithm enjoys widespread use for image analysis in the
+Chemometrics community (Chevallier et al. (2006)).
+
+In my comparative study, PLSDA had the greatest generalization ability
+out of all supervised algorithms.
+
+\begin{figure}
+\centering
+\includegraphics{../fig/accuracy_plsda.png}
+\caption{PLS-DA Accuracy with 95\% CI as number of components is
+increased. The optimum is found to be 15 components.}
+\end{figure}
+
+\hypertarget{other-algorithms}{%
+\section{Other algorithms}\label{other-algorithms}}
+
+SVMs performed poorly on the dataset. Both Linear and RBF kernels were
+employed using hinge loss, the results were significantly lower than
+other methods discussed in this report. This is somewhat surprising
+considering SVMs are more robust when dealing with noisy data, as the
+boundaries only depend on the support vectors.
+
+Furthermore, generally speaking, nonlinear models performed poorly on
+the data set. MDA has already been mentioned, Neural Nets were also
+attempted with disappointing results.
+
+\hypertarget{pseudo-labeling}{%
+\section{Pseudo-labeling}\label{pseudo-labeling}}
+
+Pseudo-labeling, also known as self-training or Yarowsky's Algorithm, is
+a commonly used technique for semi-supervised learning (Algorithm 2). A
+classifier is first trained with the small amount of labeled data. The
+classifier is then used to classify the unlabeled data. The classifier
+is re-trained and the procedure repeated, namely the classifier uses its
+own predictions to teach itself (Zhu (2006)).
+
+\begin{algorithm}
+\SetKwInOut{Input}{input}\SetKwInOut{Output}{output}
+ \Input{classifier($\cdot,\cdot$), $y^{(0)}, X^{(0)}, X^{(u)}$, {max\_iter}}
+ \Output{model}
+  $y^{(0)} \triangleq$ Labels vector (labeled set)\;
+  $X^{(0)} \triangleq$ Predictor matrix (labeled set)\;
+  $X^{(u)} \triangleq$ Predictor matrix (unlabeled set)\;
+  
+  \Begin{
+
+  \tcc{We first train a model using the classifier function and label the unlabeled set}
+  model := classifier($X^{(0)}, y^{(0)}$)\;
+  $\hat{y}^{(u)}$ := model.predict($X^{(u)}$)\;
+  }
+ \While{$j< maxiter$}{
+ $j = j+1$\;
+ 
+ $X := \begin{bmatrix} 
+        X^{(0)} \\
+        X^{(u)}
+        \end{bmatrix}$
+         \;
+         
+ $\hat{y} := \begin{bmatrix} 
+        y^{(0)} \\
+        \hat{y}^{(u)}
+        \end{bmatrix}
+         $\;
+  model := classifier($X, \hat y$)\;
+  $\hat{y}^{(u)}$ := model.predict($X^{(u)}$)\;
+  
+}
+
+\caption{The Pseudo-Labeling Algorithm}
+
+\end{algorithm}
+
+Pseudo-labeling is a wrapper algorithm, and is hard to analyze in
+general. However Abney (2004) provides an analytic proof of how the
+algorithm essentially ``optimizes either likelihood or a closely related
+objective function K''. Like many other semi-supervised learning
+techniques, it is in common use in fields where labeled data is scarce
+with respect to test data. In my review of the literature I found that
+test set sizes are always significantly larger than training sets, and
+my own experiments showed that pseudo labeling doesn't have a strong
+impact when the test set is similar in size or smaller than the training
+set. However, in our case the test set is significantly larger than the
+training set, and pseudo-labeling was shown to significantly improve
+accuracy on the test set.
+
+PLSDA showed a marked improvement over it's supervised counterpart, as
+seen in Table 2.
+
+However the algorithm that performed the best out of all is Least
+Squares Classifier with L2 regularization. This algorithm is equivalent
+to assigning each class a numeric value, then performing Ridge
+Regression on the data set. To predict new values, the weights are
+applied as in Linear Regression and the class value closest to
+\(\hat y_i\) is the predicted class. A grid search was performed on
+\(p=1000:2000\) in steps of 100, and \(lambda=0:1\) in steps of 0.1.
+
+\hypertarget{conclusion-future-research-and-personal-thoughts}{%
+\section{Conclusion, Future Research and Personal
+Thoughts}\label{conclusion-future-research-and-personal-thoughts}}
+
+The results show that for a data set of these characteristics, namely,
+small proportion of labeled data points, high dimensionality, less
+samples per class than features (\(n_k<p\)), noise, and collinearity, we
+can use the sort of techniques that are used in Chemometrics and
+Biostatistics, where many data sets are of this nature. Discriminant
+Analysis, PLSDA, logistic regression -the fundamental tools of
+Statistical Learning Theory - all yielded good results.
+
+However, it is clear that semi-supervised learning techniques are very
+useful in dealing with scenarios where unlabeled data far exceeds
+labeled data. Using pseudo-labeling always reduced the generalization
+error. If I had more time I would have attempted other classifiers in
+conjunction with pseudo-labeling, for example SVMs. Furthermore, it is
+clear that there are many semi-supervised learning techniques which I
+should have explored but didn't, so these present are a clear
+opportunities for improvement.
+
+One drawback of semi-supervised learning, though, is the inherently
+serial nature of many of its algorithms. Most algorithms are very much
+like the EM algorithm family or the Pseudo-labeling algorithm, in that
+they iterate until convergence using results from the previous
+iteration, and hence don't lend themselves to parallel implementations.
+This increase in running time is compounded by the fact that
+semi-supervised learning uses a lot more data (several times more).
+Having said that, one can still run many different algorithms, each
+using one core, but this would essentially require containers, or look
+for a parallel implementation of the base classifier if it exists - but
+these pose a greater technical challenge for the average practitioner.
+
+It is clear that a lot of the properties of these algorithms have still
+to be researched. A clear example is how pseudo-labeling, which is a
+very simple algorithm, is generally not well understood. For my personal
+work, I observed that training error increased with each iteration of
+the pseudo-labeling algorithm, but it is not rigourously proven whether
+there is a lower bound, and hence convergence, and whether this
+convergence is some sort of optima, or whether the algorithm eventually
+also overfits and misses its optimum.
+
+\hypertarget{bibliography}{%
+\section*{Bibliography}\label{bibliography}}
+\addcontentsline{toc}{section}{Bibliography}
+
+\hypertarget{refs}{}
+\leavevmode\hypertarget{ref-abney2004understanding}{}%
+Abney, Steven. 2004. ``Understanding the Yarowsky Algorithm.''
+\emph{Computational Linguistics} 30 (3): 365--95.
+
+\leavevmode\hypertarget{ref-barker2003partial}{}%
+Barker, Matthew, and William Rayens. 2003. ``Partial Least Squares for
+Discrimination.'' \emph{Journal of Chemometrics: A Journal of the
+Chemometrics Society} 17 (3): 166--73.
+
+\leavevmode\hypertarget{ref-chevallier2006application}{}%
+Chevallier, Sylvie, Dominique Bertrand, Achim Kohler, and Philippe
+Courcoux. 2006. ``Application of Pls-Da in Multivariate Image
+Analysis.'' \emph{Journal of Chemometrics: A Journal of the Chemometrics
+Society} 20 (5): 221--29.
+
+\leavevmode\hypertarget{ref-friedman1989regularized}{}%
+Friedman, Jerome H. 1989. ``Regularized Discriminant Analysis.''
+\emph{Journal of the American Statistical Association} 84 (405):
+165--75.
+
+\leavevmode\hypertarget{ref-gottfries1995diagnosis}{}%
+Gottfries, Johan, Kaj Blennow, Anders Wallin, and CG Gottfries. 1995.
+``Diagnosis of Dementias Using Partial Least Squares Discriminant
+Analysis.'' \emph{Dementia and Geriatric Cognitive Disorders} 6 (2):
+83--88.
+
+\leavevmode\hypertarget{ref-hastie1996discriminant}{}%
+Hastie, Trevor, and Robert Tibshirani. 1996. ``Discriminant Analysis by
+Gaussian Mixtures.'' \emph{Journal of the Royal Statistical Society.
+Series B (Methodological)}, 155--76.
+
+\leavevmode\hypertarget{ref-Perez207225}{}%
+Perez, Daniel Ruiz, and Giri Narasimhan. 2018. ``So You Think You Can
+Pls-Da?'' \emph{bioRxiv}. \url{https://doi.org/10.1101/207225}.
+
+\leavevmode\hypertarget{ref-ramey2016high}{}%
+Ramey, John A, Caleb K Stein, Phil D Young, and Dean M Young. 2016.
+``High-Dimensional Regularized Discriminant Analysis.'' \emph{arXiv
+Preprint arXiv:1602.01182}.
+
+\leavevmode\hypertarget{ref-staahle1987partial}{}%
+Ståhle, Lars, and Svante Wold. 1987. ``Partial Least Squares Analysis
+with Cross-Validation for the Two-Class Problem: A Monte Carlo Study.''
+\emph{Journal of Chemometrics} 1 (3): 185--96.
+
+\leavevmode\hypertarget{ref-zhu2006semi}{}%
+Zhu, Xiaojin. 2006. ``Semi-Supervised Learning Literature Survey.''
+\emph{Computer Science, University of Wisconsin-Madison} 2 (3): 4.
+
+\end{document}
+
+

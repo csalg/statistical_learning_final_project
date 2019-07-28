@@ -1,0 +1,91 @@
+---
+title: "Readme"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+### Initial settings
+##### config.r
+
+Please start by configuring the folder locations and other settings in config.r
+
+##### Required libraries
+Install RSSL, functional, caret, plyr and dplyr as these are required for procedures.r
+
+```{r init, eval=FALSE}
+install.packages("functional")
+install.packages("caret")
+install.packages("plyr")
+install.packages("dplyr")
+install.packages("RSSL")
+```
+
+### procedures.r
+
+All of the data wrangling and repetitive procedural code has been abstracted away to procedures.r, hence we start by loading it onto the global namespace:
+
+```{r, eval=FALSE}
+source("procedures.r")
+```
+
+### PCA
+
+All classifiers are estimated in PC space, hence we start by projecting both datasets onto PC space. The PCA must then be saved as a RDS somewhere so that we don't have to store it in RAM:
+
+```{r, eval=FALSE}
+make_pca()
+```
+It is only necessary to do this once.
+
+### Caret library models
+Use the wrapper function makePCAModel(ncomp)(model_name, tune_length=10, repeats=5, number=2). ncomp refers to the number of principal components to select, model_name refers to the Caret's models. Not all models require a tune_length, in which case this parameter should be 0. This function will tune a model using cross validation, save the model as a RDS and save the predictions as a Kaggle-friendly csv file.
+
+Here are the Caret models used in the comparative study:
+``` {r, eval=FALSE}
+makePCAModel(4000)("svmLinear3")
+
+#High-Dimensional Regularized Discriminant Analysis
+#The sparsediscrim package is currently archived, needs manual install
+# url <- "https://cran.r-project.org/src/contrib/Archive/sparsediscrim/sparsediscrim_0.2.4.tar.gz"
+# pkgFile <- "sparsediscrim_0.2.4.tar.gz"
+# download.file(url = url, destfile = pkgFile)
+# install.packages("bdsmatrix")
+# install.packages("mvtnorm")
+# install.packages("corpcor")
+# install.packages(pkgs=pkgFile, type="source", repos=NULL)
+makePCAModel(4000)("hdrda", 0)
+makePCAModel(425)("plsda", 20)
+makePCAModel(1000)("plsda", 20)
+makePCAModel(1500)("plsda", 20)
+makePCAModel(4000)("plsda", 20)
+```
+
+### Self-learning models
+Similar to the previous wrapper function, the first argument is the name of the algorithm while the second one is the number of PCs to train on. The models and predictions will be saved to the appropriate folders:
+
+``` {r, eval=FALSE}
+makeSelfLearningModel("LeastSquaresClassifier",1000)
+```
+
+### Keras 
+Neural networks were wildly unsuccessful for this classification taks, nevertheless the script is nn.py and can be run as follows:
+
+Run python3 nn.py with appropriate flags:
+
+``` {}
+  -m --mode
+		Mode: s: train and save, v: train using validation, or t: load and test.  
+  -f --file
+		h5 file with weights, required for testing.
+```
+
+Can be run either in training mode or test mode with a model. Examples:
+
+``` {}
+python3 nn.py -m s
+python3 nn.py -m t -f "model.h5"
+```
